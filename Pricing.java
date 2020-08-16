@@ -7,13 +7,6 @@ import java.util.List;
 
 public class Pricing {
     public static void main(String args[]) throws Exception {
-//        Scanner sc = new Scanner(new File("data.csv"));
-//        sc.useDelimiter(",");
-//        while (sc.hasNext()) {
-//            System.out.print(sc.next());
-//        }
-//        sc.close();
-
         String[] BASE_FOUR = {"bralette", "tank", "cami", "tube", "cropped"};
         String[] BASE_SIX = {"midi skirt", "culottes"};
         String[] BASE_EIGHT = {"maxi dress", "long dress"};
@@ -87,25 +80,5 @@ public class Pricing {
         {
             e.printStackTrace();
         }
-
-        // Read existing file
-//        CSVReader reader = new CSVReader(new FileReader(new File("data.csv")), ',');
-//        List<String[]> csvBody = reader.readAll();
-//        // get CSV row column and replace with by using row and column
-//        for(int i=0; i<csvBody.size(); i++){
-//            String[] strArray = csvBody.get(i);
-//            for(int j=0; j<strArray.length; j++){
-//                if(strArray[j].equalsIgnoreCase("Update_date")){ //String to be replaced
-//                    csvBody.get(i)[j] = "Updated_date"; //Target replacement
-//                }
-//            }
-//        }
-//        reader.close();
-//
-//        // Write to CSV file which is open
-//        CSVWriter writer = new CSVWriter(new FileWriter(new File("data.csv")), ',');
-//        writer.writeAll(csvBody);
-//        writer.flush();
-//        writer.close();
     }
 }
