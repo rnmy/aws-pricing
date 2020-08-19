@@ -23,15 +23,17 @@ public class SellingPriceCalculator {
         String splitBy = ",";
 
         BufferedReader br = FileReadWrite.readFile("data.csv");
-        FileWriter fw = FileReadWrite.writeFile("buying_prices.csv");
+        FileWriter fw = FileReadWrite.writeFile("selling_prices.csv");
 
         FileReadWrite.appendFileWriter(fw);
 
         while ((line = br.readLine()) != null) {
             String[] item = line.split(splitBy);
             List<String> rowData = convertAnItemToRowData(item);
-            fw.append(String.join(",", rowData));
-            fw.append("\n");
+            if (!rowData.get(0).equals("ID")) {
+                fw.append(String.join(",", rowData));
+                fw.append("\n");
+            }
         }
         fw.flush();
         fw.close();

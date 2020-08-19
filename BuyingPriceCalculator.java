@@ -21,7 +21,7 @@ public class BuyingPriceCalculator {
         }
 
         // check for defects
-        for (int i = 2; i < 8; i++) {
+        for (int i = 2; i < 6; i++) {
             if (Boolean.parseBoolean(item[i])) {
                 price -= 1;
             }
@@ -36,7 +36,7 @@ public class BuyingPriceCalculator {
         if (Boolean.parseBoolean(item[8])) {
             price = 0;
         }
-        System.out.println(price);
+        //System.out.println(price);
 
         return price;
     }
@@ -55,15 +55,18 @@ public class BuyingPriceCalculator {
         String splitBy = ",";
 
         BufferedReader br = FileReadWrite.readFile("data.csv");
-        FileWriter fw = FileReadWrite.writeFile("selling_prices.csv");
+        FileWriter fw = FileReadWrite.writeFile("buying_prices.csv");
 
         FileReadWrite.appendFileWriter(fw);
 
         while ((line = br.readLine()) != null) {
             String[] item = line.split(splitBy);
             List<String> rowData = convertAnItemToRowData(item);
-            fw.append(String.join(",", rowData));
-            fw.append("\n");
+            System.out.println(rowData);
+            if (!rowData.get(0).equals("ID")) {
+                fw.append(String.join(",", rowData));
+                fw.append("\n");
+            }
         }
         fw.flush();
         fw.close();
